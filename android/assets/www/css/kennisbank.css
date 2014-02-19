@@ -1,0 +1,27 @@
+.app {
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.thumb_scroller {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    background-color: white;
+    /*width: 100%*/
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.main_window {
+    width: 100%;
+}
