@@ -32,11 +32,12 @@
 
       <link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen"/>
 
+
       <script src="appframework.js"></script>
       <script src="af.carousel.js"></script>
       <script src="af.desktopBrowsers.js"></script>
 
-        <!--  include af.desktopBrowsers.js on desktop browsers only -->
+        <!-- include af.desktopBrowsers.js on desktop browsers only -->
         <script>
 
             function loadedPanel(what) {
@@ -51,12 +52,12 @@
 
             if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
                 var script = document.createElement("script");
-              //  script.src = "plugins/af.desktopBrowsers.js";
+                script.src = "plugins/af.desktopBrowsers.js";
                 var tag = $("head").append(script);
             }
 
         </script>
-
+        
         <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
         <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
         <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
@@ -74,7 +75,6 @@
         <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
         <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
         <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
-        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
      <!--   <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>-->
 
         <script type="text/javascript">
@@ -150,7 +150,6 @@
     <script>
 		 var carousel;
 			function init_carousel() {
-
 				carousel=$("#carousel").carousel({
 					pagingDiv: "carousel_dots",
 					pagingCssName: "carousel_paging2",
@@ -158,26 +157,9 @@
 					preventDefaults:false,
 					wrap:true //Set to false to disable the wrap around
 				});
-            }
+			}
 			window.addEventListener("load", init_carousel, false);
 
-            // $.ui.ready(function(){
-            //         $("#carousel img").bind("click",function(e){
-            //             $("#carousel div").css3Animate({
-            //                     height:'+=250px',
-            //                     position: 'absolute' ,
-            //                     left:'0px',
-            //                     top: '0px',
-            //                     width:'100%',
-            //                     time: "700ms" ,
-            //                     callback: function () {
-            //                         //reset()
-            //                     }
-            //                 });
-
-
-            //         });
-            //     });
 		</script>
 
 </head>
@@ -194,38 +176,38 @@
              <div id="header">
                  <a class="sld_dwn" href="#transition3" data-transition="down"></a>
             </div>
-
+            
        <div id="content">
           <div id="main" class="panel" selected="true" data-load="loadedPanel" data-unload="unloadedPanel" data-tab="navbar_home">
                <h2 class="heading_cont">John Doodle</h2>
                <p class="spl_text">Spring is Coming</p>
-
-
-
+             
+             
+                
             <div id="carousel" style="display:block;height:300px;width:100%;margin: 0 auto;">
 
-                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg" id="kk"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
-                <div class=""> <a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
-                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg" onClick="function($ui);"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class=""> <a data-transition="down" class="example-image-link" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class=""><a data-transition="down" class="example-image-link" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
 
 				</div>
-
+                    
                 </div>
-
+                
            <!-- App Framework UI> Transitions -->
-
+              
                 <div id="transition3" class="panel splashscreen" data-footer='footerui' style="padding-left:0px">
                       <ul class="list">
                         <li class="search_bx"><a href="#"><input type="search" name="search" placeholder="Search" class="srch_icn"></a></li>
@@ -233,13 +215,16 @@
                         <li><a href="#">Settings</a></li>
                         <li><a href="#">Logout</a></li>
                       </ul>
-
+                   
                 </div>
-
+               
          </div>
-
+      
+      
+        
+   
     </div>
 
-
+   
 </body>
 </html>
