@@ -36,9 +36,7 @@
       <link rel="stylesheet" type="text/css" href="css/src/grid.css"  />
 
 
-	  <link rel="stylesheet" href="dd/swiper.css">
-	  <link rel="stylesheet" href="dd/normalize.css">
-      <link rel="stylesheet" href="dd/movies-app.css">
+	  <link rel="stylesheet" href="css/idangerous.swiper.css">
 
 
       <link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
@@ -56,8 +54,8 @@
 -->   
        <script  type="text/javascript" src="dd/jquery.min.js"></script>
        <script  type="text/javascript" src="jq.appframework.js"></script>
-      <!-- <script src="ui/appframework.ui.js"></script> -->
-
+	  <!-- <script  type="text/javascript" src="af.desktopBrowsers.js"></script> -->
+ 
        <script  type="text/javascript">
 
             function loadedPanel(what) {
@@ -70,10 +68,12 @@
                 console.log("unloaded " + what.id);
             }
 
-            if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+                if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
                 var script = document.createElement("script");
-                //script.src = "plugins/af.desktopBrowsers.js";
+               // script.src = "plugins/af.desktopBrowsers.js";
                 var tag = $("head").append(script);
+                $.os.android = true; //let's make it run like an android device
+                $.os.desktop = true;
             }
            
           
@@ -196,6 +196,57 @@ body {
 .swiper-slide .title {
   line-height:15px !important;
 }
+.swiper-container {
+  width: 660px;
+  height: 250px;
+  color: #fff;
+  text-align: center;
+}
+.red-slide {
+  background: #ca4040;
+}
+.blue-slide {
+  background: #4390ee;
+}
+.orange-slide {
+  background: #ff8604;
+}
+.green-slide {
+  background: #49a430;
+}
+.pink-slide {
+  background: #973e76;
+}
+.swiper-slide .title {
+  font-style: italic;
+  font-size: 42px;
+  margin-top: 80px;
+  margin-bottom: 0;
+  line-height: 45px;
+}
+.pagination {
+  position: absolute;
+  z-index: 20;
+  left: 10px;
+  bottom: 10px;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #222;
+  margin-right: 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-visible-switch {
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
+}
   </style>
 
 </head>
@@ -208,12 +259,10 @@ body {
                 <br>
                 <br>	<span class='ui-icon ui-icon-loading spin'></span>
                 <h1>Starting app</h1>
-
             </div>
             <div id="header">
                 <a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton'></a>
-                 <a class="sld_dwn" href="#transition3" data-transition="down"></a>
-            </div>
+                 <a class="sld_dwn" href="#transition3" data-transition="down"></a>            </div>
             
     <div id="content">
           <div id="main" class="panel">
@@ -266,223 +315,35 @@ body {
               <li><img src="http://lorempixel.com/120/200/nightlife"></li>        
               <li> <img src="http://lorempixel.com/120/200/cats"></li>        
             </ul> -->
-				<div class="swiper-container swiper-content">
-<div class="swiper-wrapper">
-<div class="swiper-slide">
-<div class="inner">
-<h1>Movie 1</h1>
-<img class="movie-pic" src="dd/1.jpg" height="150" width="150" alt="">
-<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-<div class="clearfix"></div>
-</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 2</h1>
-	<img class="movie-pic" src="dd/2.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 3</h1>
-	<img class="movie-pic" src="dd/3.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 4</h1>
-	<img class="movie-pic" src="dd/4.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 5</h1>
-	<img class="movie-pic" src="dd/5.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 6</h1>
-	<img class="movie-pic" src="dd/6.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 7</h1>
-	<img class="movie-pic" src="dd/7.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 8</h1>
-	<img class="movie-pic" src="dd/8.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 9</h1>
-	<img class="movie-pic" src="dd/1.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 10</h1>
-	<img class="movie-pic" src="dd/2.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 11</h1>
-	<img class="movie-pic" src="dd/3.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 12</h1>
-	<img class="movie-pic" src="dd/4.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 13</h1>
-	<img class="movie-pic" src="dd/5.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 14</h1>
-	<img class="movie-pic" src="dd/6.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 15</h1>
-	<img class="movie-pic" src="dd/7.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 16</h1>
-	<img class="movie-pic" src="dd/8.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	</div>
-</div>
-				     <div class="swiper-container swiper-nav">
-						<div class="swiper-wrapper">
-						<div class="swiper-slide active-nav">
-						<span class="angle"></span>
-						<img src="dd/1.jpg" alt="">
-						<div class="title">Movie 1</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/2.jpg" alt="">
-						<div class="title">Movie 2</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/3.jpg" alt="">
-						<div class="title">Movie 3</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/4.jpg" alt="">
-						<div class="title">Movie 4</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/5.jpg" alt="">
-						<div class="title">Movie 5 Long Title</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/6.jpg" alt="">
-						<div class="title">Movie 6</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/7.jpg" alt="">
-						<div class="title">Movie 7</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/8.jpg" alt="">
-						<div class="title">Movie 8</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/1.jpg" alt="">
-						<div class="title">Movie 9</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/2.jpg" alt="">
-						<div class="title">Movie 10</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/3.jpg" alt="">
-						<div class="title">Movie 11</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/4.jpg" alt="">
-						<div class="title">Movie 12</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/5.jpg" alt="">
-						<div class="title">Movie 13 Long Title</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/6.jpg" alt="">
-						<div class="title">Movie 14</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/7.jpg" alt="">
-						<div class="title">Movie 15</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/8.jpg" alt="">
-						<div class="title">Movie 16</div>
-						</div>
-						</div>
-						</div>
-				
+				<div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide red-slide">
+        <div class="title">Slide 1</div>
+      </div>
+      <div class="swiper-slide blue-slide">
+        <div class="title">Slide 2</div>
+      </div>
+      <div class="swiper-slide orange-slide">
+        <div class="title">Slide 3</div>
+      </div>
+      <div class="swiper-slide green-slide">
+        <div class="title">Slide 4</div>
+      </div>
+      <div class="swiper-slide pink-slide">
+        <div class="title">Slide 5</div>
+      </div>
+      <div class="swiper-slide red-slide">
+        <div class="title">Slide 6</div>
+      </div>
+      <div class="swiper-slide blue-slide">
+        <div class="title">Slide 7</div>
+      </div>
+      <div class="swiper-slide orange-slide">
+        <div class="title">Slide 8</div>
+      </div>
+    </div>
+    <div class="pagination"></div>
+  </div>
 				</div>
  
          <!-- App Framework UI> Transitions -->
@@ -494,36 +355,34 @@ body {
                         <li><a href="#">Settings</a></li>
                         <li><a href="#">Logout</a></li>
                       </ul>
-                   
                 </div>
 				
 				
                 
                 <!-- ------------------------------------------ -->
-        
     </div>
-      <div id="navbar" style='margin: 0;float:left;'>
-                <a href="#main/1/3" id='navbar_home' class='icon home'>home </a>
-            </div>
+            <div id="navbar" style='margin: 0;float:left;'>
+                <a href="#main/1/3" id='navbar_home' class='icon home'>home </a>            </div>
         
             <footer id='footerui'>
-                <a href="#main" id='navbar_home' class='icon home'>Home </a>
-            </footer>
+                <a href="#main" id='navbar_home' class='icon home'>Home </a>            </footer>
  
     <nav id="main_nav">
             <ul class="list">
-                 <li>
-                 
-                 </li>
+                 <li>                 </li>
              </ul>
-        
     </nav>
  </div>
 <!--     <script type="text/javascript" charset="utf-8" src="plugins/jquery-1.10.1.min.js"></script>
 -->
 
-<script  type="text/javascript" src="dd/swiper.min.js"></script>
-<script  type="text/javascript" src="dd/movies-app.js"></script>    
-
+<script src="idangerous.min.js"></script>
+  <script>
+  var mySwiper = new Swiper('.swiper-container',{
+    pagination: '.pagination',
+    paginationClickable: true,
+    slidesPerView: 3
+  })
+  </script>
 </body>
 </html>

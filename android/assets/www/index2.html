@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+ 
+    <head>
+        <title>UI Starter</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="css/af.ui.css" />
+        <link rel="stylesheet" href="css/idangerous.swiper.css">
+		<!-- uncomment for apps
+        <script type="text/javascript" charset="utf-8" src="indelxdk.js"></script>   -->
+		     
+       
+		
+		<script type="text/javascript" charset="utf-8" src="plugins/jquery-1.10.1.min.js"></script>
+		<script  type="text/javascript" src="jq.appframework.js"></script>
+		
+        
+      <!--   emulate touch on desktop browsers only -->
+        <script type="text/javascript">
+            if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+				
+                var script = document.createElement("script");
+               // script.src = "plugins/af.desktopBrowsers.js";
+                var tag = $("head").append(script);
+                $.os.android = false; //let's make it run like an android device
+                $.os.desktop = true;
+            }
+ 
+        </script>
+		<script  type="text/javascript" src="ui/appframework.ui.js"></script>
+        <script type="text/javascript">
+ 
+            var webRoot = "./";
+            $.ui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+            /* This function runs when the body is loaded.*/
+            var init = function () {
+                    $.ui.backButtonText = "Back";// We override the back button text to always say "Back"
+                    window.setTimeout(function () {
+                        $.ui.launch();
+                    }, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
+                };
+            document.addEventListener("DOMContentLoaded", init, false);
+              $.ui.ready(function () {
+                //This function will get executed when $.ui.launch has completed
+             });
+ 
+ 
+            /* This code is used for Intel native apps */
+            var onDeviceReady = function () {
+                    intel.xdk.device.hideSplashScreen();
+ 
+            };
+            document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
+        </script>
+    </head>
+   <style>
+/* Demo Styles */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.swiper-container {
+  width: 660px;
+  height: 250px;
+  color: #fff;
+  text-align: center;
+}
+.red-slide {
+  background: #ca4040;
+}
+.blue-slide {
+  background: #4390ee;
+}
+iframe {
+  height:0px !important;
+}
+.orange-slide {
+  background: #ff8604;
+}
+.green-slide {
+  background: #49a430;
+}
+.pink-slide {
+  background: #973e76;
+}
+.swiper-slide .title {
+  font-style: italic;
+  font-size: 42px;
+  margin-top: 80px;
+  margin-bottom: 0;
+  line-height: 45px;
+}
+.pagination {
+  position: absolute;
+  z-index: 20;
+  left: 10px;
+  bottom: 10px;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #222;
+  margin-right: 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-visible-switch {
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+  </style>
+    <body>
+        <div id="afui"> <!-- this is the main container div.  This way, you can have only part of your app use UI -->
+            <!-- this is the header div at the top -->
+            <div id="header">
+                <a href="javascript:$.ui.toggleSideMenu()" class="button" style="float:right">Toggle Nav</a>
+            </div>
+            <div id="content">
+                <!-- here is where you can add your panels -->
+                <div title='Welcome' id="main" class="panel" >This is a basic skeleton UI sample
+				<div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide red-slide">
+        <div class="title">Slide 1</div>
+      </div>
+      <div class="swiper-slide blue-slide">
+        <div class="title">Slide 2</div>
+      </div>
+      <div class="swiper-slide orange-slide">
+        <div class="title">Slide 3</div>
+      </div>
+      <div class="swiper-slide green-slide">
+        <div class="title">Slide 4</div>
+      </div>
+      <div class="swiper-slide pink-slide">
+        <div class="title">Slide 5</div>
+      </div>
+      <div class="swiper-slide red-slide">
+        <div class="title">Slide 6</div>
+      </div>
+      <div class="swiper-slide blue-slide">
+        <div class="title">Slide 7</div>
+      </div>
+      <div class="swiper-slide orange-slide">
+        <div class="title">Slide 8</div>
+      </div>
+    </div>
+    <div class="pagination"></div>
+  </div>
+				</div>
+				
+				
+				
+            </div>
+            <!-- bottom navbar. Add additional tabs here -->
+            <div id="navbar">
+                <div class="horzRule"></div>
+                <a href="#main" id='navbar_home' class='icon home'>home</a>
+            </div>
+            <!-- this is the default left side nav menu.  If you do not want any, do not include these -->
+            <nav>
+                <div class='title'>Home</div>
+                <ul>
+                    <li >
+                        <a class="icon home mini" href="#main">Selectors</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+		<script src="idangerous.min.js"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function(){ 		
+		 var mySwiper = new Swiper('.swiper-container',{
+			pagination: '.pagination',
+			paginationClickable: true,
+			slidesPerView: 3
+		  })
+		
+		 }, false)
+
+
+		</script>
+    </body>
+</html>
