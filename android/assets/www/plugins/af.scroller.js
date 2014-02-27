@@ -5,7 +5,9 @@
  * Optimizations and bug improvements by Intel
  * @copyright Intel
  */ (function ($) {
-    var HIDE_REFRESH_TIME = 325; // hide animation of pull2ref duration in ms
+ 
+    
+	var HIDE_REFRESH_TIME = 325; // hide animation of pull2ref duration in ms
     var cache = [];
     var objId = function (obj) {
         if (!obj.afScrollerId) obj.afScrollerId = $.uuid();
@@ -31,6 +33,7 @@
     var boundTouchLayer = false;
 
     function checkConsistency(id) {
+		consile.log("ID" ,id);
         if (!cache[id].el) {
             delete cache[id];
             return false;
@@ -52,7 +55,7 @@
                 }
             });
         }
-        boundTouchLayer = true;
+        boundTouchLayer = false;
     }
     var scroller = (function () {
         var translateOpen = $.feat.cssTransformStart;
@@ -63,13 +66,16 @@
         var scroller = function (elID, opts) {
 
             var el;
+			
 
             if (!boundTouchLayer && $.touchLayer && $.isObject($.touchLayer)) bindTouchLayer();
             else if (!$.touchLayer || !$.isObject($.touchLayer)) $.touchLayer = {};
             if (typeof elID == "string" || elID instanceof String) {
                 el = document.getElementById(elID);
+				
             } else {
                 el = elID;
+				
             }
             if (!el) {
                 alert("Could not find element for scroller " + elID);
@@ -94,7 +100,7 @@
             //core default properties
             refresh: false,
             refreshContent: "Pull to Refresh",
-            refreshHangTimeout: 2000,
+            refreshHangTimeout: 500,
             refreshHeight: 60,
             refreshElement: null,
             refreshCancelCB: null,
@@ -104,6 +110,7 @@
             preventHideRefresh: true,
             verticalScroll: true,
             horizontalScroll: false,
+			chk:0,
             refreshTriggered: false,
             moved: false,
             eventsActive: false,
@@ -251,6 +258,7 @@
                 }
                 var el = afEl.get(0);
 
+
                 this.refreshContainer = af('<div style="overflow:hidden;height:0;width:100%;display:none;"></div>');
                 $(this.el).prepend(this.refreshContainer.prepend(el));
                 this.refreshContainer = this.refreshContainer[0];
@@ -355,6 +363,7 @@
             if (this.verticalScroll && this.verticalScroll === true && this.scrollBars === true) {
                 scrollDiv = createScrollBar(5, 20);
                 scrollDiv.style.top = "0px";
+				console.log("ver");
                 if (this.vScrollCSS) scrollDiv.className = this.vScrollCSS;
                 //scrollDiv.style.opacity = "0";
                 scrollDiv.style.display='none';
@@ -1410,7 +1419,13 @@
                         this.el.style.marginLeft = Math.round(distanceToMove.x) + "px";
                     } else {
 
-                        this.el.style[$.feat.cssPrefix + "Transform"] = "translate" + translateOpen + distanceToMove.x + "px," + distanceToMove.y + "px" + translateClose;
+         
+					    if(this.chk == 10) {
+							this.el.style[$.feat.cssPrefix + "Transform"] = "translate" + translateOpen + distanceToMove.x + "px," + 0 + "px" + translateClose;
+						}else {
+							this.el.style[$.feat.cssPrefix + "Transform"] = "translate" + translateOpen + distanceToMove.x + "px," + distanceToMove.y + "px" + translateClose;
+						}
+					    
                         this.el.style[$.feat.cssPrefix + "TransitionDuration"] = time + "ms";
                         this.el.style[$.feat.cssPrefix + "TransitionTimingFunction"] = timingFunction;
                     }

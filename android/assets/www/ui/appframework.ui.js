@@ -321,7 +321,7 @@
     };
 })(af);
 /**
- * af.scroller 
+ * af.scroller
  * created by appMobi with modifications by Carlos Ouro @ Badoo and Intel
  * Supports iOS native touch scrolling
  * Optimizations and bug improvements by Intel
@@ -703,12 +703,12 @@
 
         };
         nativeScroller = function (el, opts) {
-           
+
             if(opts.nativeParent){
                 el=el.parentNode;
             }
             this.init(el, opts);
-            
+
             var $el = $(el);
 
             if (opts.noParent !== true) {
@@ -786,13 +786,13 @@
             }
         };
         nativeScroller.prototype.onTouchStart = function (e) {
-            
+
 
             if(this.el.scrollTop===0)
                 this.el.scrollTop=1;
             if(this.el.scrollTop===(this.el.scrollHeight - this.el.clientHeight))
                 this.el.scrollTop-=1;
-            
+
             if(this.horizontalScroll){
                 if(this.el.scrollLeft===0)
                     this.el.scrollLeft=1;
@@ -811,10 +811,10 @@
 
                 }
             }
-           
+
         };
         nativeScroller.prototype.onTouchMove = function (e) {
-           
+
             var newcY = e.touches[0].pageY - this.dY;
             var newcX = e.touches[0].pageX - this.dX;
             if(this.hasVertScroll&&this.el.clientHeight==this.el.scrollHeight){
@@ -1432,7 +1432,7 @@
 
         };
 
-       
+
 
         jsScroller.prototype.calculateMovement = function (event, last) {
             //default variables
@@ -1486,7 +1486,7 @@
 
             var minLeft=this.container.clientWidth/2;
             var maxLeft=this.elementInfo.maxLeft+minLeft;
-            
+
             if (scrollInfo.x > minLeft) scrollInfo.x = minLeft;
             else if (-scrollInfo.x > maxLeft) scrollInfo.x = -maxLeft;
             else return;
@@ -1528,7 +1528,7 @@
                     complete: endAnimationCb
                 });
             }
-            this.refreshTriggered = false;            
+            this.refreshTriggered = false;
         };
 
         jsScroller.prototype.setMomentum = function (scrollInfo) {
@@ -2146,7 +2146,7 @@
 
             if (what == 1) { //show
                 $(theEl).vendorCss("TextSecurity","none");
-                
+
             } else {
                 $(theEl).vendorCss("TextSecurity","disc");
             }
@@ -2481,7 +2481,7 @@
                 touch.isDoubleTap = true;
             touch.last = now;
            longTapTimer=setTimeout(longTap, longTapDelay);
-           
+
             if ($.ui.useAutoPressed && !touch.el.data("ignore-pressed"))
                 touch.el.addClass("pressed");
             if(prevEl && $.ui.useAutoPressed && !prevEl.data("ignore-pressed")&&prevEl[0]!=touch.el[0])
@@ -3235,7 +3235,7 @@
         this.availableTransitions = {};
         this.availableTransitions['default'] = this.availableTransitions.none = this.noTransition;
         //setup the menu and boot touchLayer
-       
+
 
         function checkNodeInserted(i) {
             if (i.target.id === "afui") {
@@ -3268,7 +3268,7 @@
 
         };
 
-        if ("intel" in window){ 
+        if ("intel" in window){
 
             document.addEventListener("intel.xdk.device.ready", function() {
                 checkAFDom();
@@ -3281,7 +3281,7 @@
                 that.autoBoot();
             else{
                 $(window).one("afui:init", function() {
-        		  that.autoBoot();  
+        		  that.autoBoot();
                 });
             }
         } else $(document).ready(function() {
@@ -3297,7 +3297,7 @@
 
         if (!("intel" in window)) window.intel = {xdk:{}}, window.intel.xdk.webRoot = "";
 
-         
+
         //click back event
         window.addEventListener("popstate", function() {
             if(!that.useInteralRouting) return;
@@ -3317,10 +3317,10 @@
             if (that.useOSThemes) {
                 if ($.os.android) $("#afui").addClass("android");
                 else if ($.os.ie) {
-                    $("#afui").addClass("win8");                    
+                    $("#afui").addClass("win8");
                 } else if ($.os.blackberry||$.os.blackberry10||$.os.playbook) {
                     $("#afui").addClass("bb");
-                    that.backButtonText = "Back";                
+                    that.backButtonText = "Back";
                 } else if ($.os.ios7)
                     $("#afui").addClass("ios7");
                 else if ($.os.ios)
@@ -3330,7 +3330,7 @@
                 $("head").find("#iosBlurrHack").remove();
                 $("head").append("<style id='iosBlurrHack'>#afui .panel > * {-webkit-backface-visibility: hidden;-webkit-perspective: 1000;}</style>");
             }
-            
+
         }
     };
 
@@ -3797,7 +3797,7 @@
                     $.ui.toggleSideMenu(false);
                 });
             }
-            
+
             if (force === 2 || (!open && ((force !== undefined && force !== false) || force === undefined))) {
                 this.togglingSideMenu = true;
                 menu.show();
@@ -4169,7 +4169,7 @@
                 window[fnc](tmp.get(0));
             }
             tmp.trigger("unloadpanel");
-            setTimeout(function(){               
+            setTimeout(function(){
                 if($.feat.nativeTouchScroll ||$.os.desktop|| !useScroller){
                     self.modalReference_.append($cnt.contents());
                 }
@@ -4304,7 +4304,7 @@
                 scrollEl = tmp.cloneNode(false);
 
 
-                tmp.title = null;                
+                tmp.title = null;
                 tmp.id = null;
                 var $tmp = $(tmp);
                 $tmp.removeAttr("data-footer data-aside data-nav data-header selected data-load data-unload data-tab data-crc title data-title");
@@ -4455,7 +4455,7 @@
                 }
                 this.customMenu = false;
             }
-       
+
 
             if (oldDiv) {
                 fnc = oldDiv.getAttribute("data-unload");
@@ -4471,7 +4471,7 @@
             $(what).trigger("loadpanel");
             if (this.isSideMenuOn()) {
                 var that = this;
-                that.toggleSideMenu(false);               
+                that.toggleSideMenu(false);
             }
         },
         /**
@@ -4579,7 +4579,7 @@
                 if (typeof fnc == "string" && window[fnc]) {
                     window[fnc](what);
                 }
-                $(what).trigger("loadpanel");                
+                $(what).trigger("loadpanel");
                 */
                 return this.showModal(what.id);
             }
@@ -4686,7 +4686,7 @@
             var that = this;
             if (target.indexOf("http") == -1) target = intel.xdk.webRoot + target;
             var xmlhttp = new XMLHttpRequest();
-        
+
             if (anchor && typeof(anchor) !== "object") {
                 anchor = document.createElement("a");
                 anchor.setAttribute("data-persist-ajax", true);
@@ -4713,7 +4713,7 @@
                         } : null;
                         //that.addContentDiv(urlHash, xmlhttp.responseText, refresh, refreshFunction);
                         var contents = $(xmlhttp.responseText);
-                        
+
                         if (contents.hasClass("panel"))
                         {
                             urlHash=contents.attr("id");
@@ -4788,7 +4788,7 @@
             }
 
             var that = this;
-            
+
             this.viewportContainer = af.query("#afui");
             this.navbar = af.query("#navbar").get(0);
             this.content = af.query("#content").get(0);
@@ -5089,7 +5089,7 @@
                     setTimeout(function(){
                         $(document).trigger("afui:ready");
                     });
-                    
+
                 };
                 if (loadingDefer) {
                     $(document).one("defer:loaded", loadFirstDiv);
@@ -5250,7 +5250,7 @@
     $.ui = new ui();
     $.ui.init=true;
     $(window).trigger('afui:preinit');
-    $(window).trigger('afui:init'); 
+    $(window).trigger('afui:init');
 
 })(af);
 

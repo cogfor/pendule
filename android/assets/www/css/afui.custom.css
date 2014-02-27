@@ -71,7 +71,6 @@ body {
 }
 
 
-
 #afui .afScrollPanel { width:100%; min-height:100%; }
 
 #afui {
@@ -143,7 +142,7 @@ body {
 	display:block;
 	position:absolute;
 	top:44px;
-	bottom:49px;
+	bottom:0px !important;
 	left:0;right:0;
 	overflow:hidden;
 } /* Accounts for positioning of the content area, which is everything below the header and above the navbar. */
@@ -296,7 +295,6 @@ body {
 	font-weight: normal;
 }
 
-
 #afui #menu .list, 
 #afui #menu .list .divider {	background:inherit; }
 
@@ -329,8 +327,9 @@ body {
     padding-right: 10px !important;
 	min-height:100%;
 }
-
-
+#afui #carousel{position:absolute; bottom:170px; top:78px; height:230px !important}
+#afui #carousel  a {width:120px !important; height:150px !important; margin-right:20px;}
+#afui #carousel  a img {width:100%; height:250px;}
 
 #afui h2 {
 	display:block;
@@ -690,7 +689,7 @@ body {
      background:#00AEEF;
     border:none;
     border-top:1px solid #0088D1;
-    box-shadow:none;
+    box-shadow:none; display:none !important
 }
 
 #afui #navbar a {
@@ -2179,6 +2178,7 @@ color:inherit;
 }
 
 @media handheld, only screen and (min-width: 768px){
+#afui .slide_img{width:150px !important; margin-right:15px;}
 
 	#afui.win8 #navbar footer #metroMenu {
 		display:none;
@@ -2198,7 +2198,6 @@ color:inherit;
   
 #owl-demo .item{width:200px !important;}
 
+
 }
-iframe {
-  height:0px !important;
-}
+

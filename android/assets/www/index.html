@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <!--HTML5 doctype-->
-<html><head>
-       <script type="text/javascript">
+<html>
+
+    <head>
+        <script>
         (function() {
-    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
         var msViewportStyle = document.createElement("style");
         msViewportStyle.appendChild(
             document.createTextNode("@-ms-viewport{width:auto!important}")
         );
         document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
        }
-    })();
+      })();
    </script>
 
         <title>Facebook Paper in Phonegap</title>
@@ -19,45 +21,23 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="stylesheet" type="text/css" href="css/icons.css" />    
- 
-       <!--   
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />
+
+       <!--
      <link rel="stylesheet" type="text/css" href="css/af.ui.css" title="default" />
   -->
       <link rel="stylesheet" type="text/css" href="css/src/main.css"  />
       <link rel="stylesheet" type="text/css" href="css/src/appframework.css"  />
       <link rel="stylesheet" type="text/css" href="css/afui.custom.css"  />
 
-      <link rel="stylesheet" type="text/css" href="css/src/badges.css"  />
-      <link rel="stylesheet" type="text/css" href="css/src/buttons.css"  />
-      <link rel="stylesheet" type="text/css" href="css/src/lists.css"  />
-      <link rel="stylesheet" type="text/css" href="css/src/forms.css"  />
-      <link rel="stylesheet" type="text/css" href="css/src/grid.css"  />
+      <link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen"/>
+
+      <script src="appframework.js"></script>
+      <script src="af.carousel.js"></script>
 
 
-	  <link rel="stylesheet" href="dd/swiper.css">
-	  <link rel="stylesheet" href="dd/normalize.css">
-      <link rel="stylesheet" href="dd/movies-app.css">
-
-
-      <link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
-      <link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
-      <link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  />
-        
-<!--      <link rel="stylesheet" type="text/css" href="css/src/android.css"  />
-      <link rel="stylesheet" type="text/css" href="css/src/win8.css"  />
-      <link rel="stylesheet" type="text/css" href="css/src/bb.css"  />
-      <link rel="stylesheet" type="text/css" href="css/src/ios7.css"  />
-      <link rel="stylesheet" type="text/css" href="css/src/ios.css"  />  -->      
-
-        <!-- uncomment for AppMobi apps <script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/appmobi.js"></script>
-<script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/xhr.js"></script>
--->   
-       <script  type="text/javascript" src="dd/jquery.min.js"></script>
-       <script  type="text/javascript" src="jq.appframework.js"></script>
-      <!-- <script src="ui/appframework.ui.js"></script> -->
-
-       <script  type="text/javascript">
+        <!--  include af.desktopBrowsers.js on desktop browsers only -->
+        <script>
 
             function loadedPanel(what) {
                 //We are going to set the badge as the number of li elements inside the target
@@ -71,31 +51,32 @@
 
             if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
                 var script = document.createElement("script");
-                //script.src = "plugins/af.desktopBrowsers.js";
+                script.src = "plugins/af.desktopBrowsers.js";
                 var tag = $("head").append(script);
+				$.feat.nativeTouchScroll=false;
             }
-           
-          
+
         </script>
-        <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script> 
-         <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
-         <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
-          <script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
-          <script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
-           <script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
-          <script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
-        <script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script> 
+
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
 
         <script type="text/javascript" charset="utf-8" src="./ui/src/appframework.ui.js"></script>
-<!--        <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
-         <script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+   <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
         <script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
         <script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
         <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
         <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
         <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
-       <!-- <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>  -->
-            
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+ <!--   <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>-->
 
         <script type="text/javascript">
             /* This function runs once the page is loaded, but appMobi is not yet active */
@@ -103,10 +84,8 @@
              var search=document.location.search.toLowerCase().replace("?","");
              //if(!search)
                 //$.os.useOSThemes=false;
-                
-            if(search) //Android fix has too many buggy issues on iOS - can't preview with $.os.android
-            {
-
+            if(search) { //Android fix has too many buggy issues on iOS - can't preview with $.os.android
+            
                $.os.useOSThemes=true;
                 if(search=="win8")
                     $.os.ie=true;
@@ -114,19 +93,18 @@
                     $("#afui").get(0).className=search;
                 });
             }
-            
+
             var webRoot = "./";
             // $.os.android=true;
             $.ui.autoLaunch = false;
             $.ui.openLinksNewTab = false;
             //$.ui.resetScrollers=false;
-            
 
             $(document).ready(function(){
                    $.ui.launch();
-
+				   //$.feat.nativeTouchScroll=true;
             });
-            
+
             /* This code is used to run as soon as appMobi activates */
             var onDeviceReady = function () {
                 AppMobi.device.setRotateOrientation("portrait");
@@ -136,13 +114,11 @@
                 AppMobi.device.hideSplashScreen();
                 $.ui.blockPageScroll(); //block the page from scrolling at the header/footer
                 $.ui.launch();
-
             };
             document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
 
             function showHide(obj, objToHide) {
                 var el = $("#" + objToHide)[0];
-
                 if (obj.className == "expanded") {
                     obj.className = "collapsed";
                 } else {
@@ -151,6 +127,33 @@
                 $(el).toggle();
 
             }
+			$.ui.ready(function(){
+			  var setWidth = $("#webslider .cru").length;
+	          $("#webslider").css({'width':setWidth * 124 +'px', position: 'absolute',bottom:'0px'});
+			  $("#webslider .cru").bind("click",function(e){
+                  e.preventDefault();
+				  var index = $( "#webslider .cru" ).index(this);
+				  console.log("Clicked", index);
+				  var con = $("#main");
+				  myDivWidth = con.get(0).clientWidth;
+				  movePos = ( index * myDivWidth * - 1 );
+				  if(index > 1) {
+				    var zz = index * 12 ;
+				  }
+				  else {
+				    var zz = 0;  
+				  }
+				  var pos = movePos + zz;
+				  console.log('translate', 'translate3d('+pos+'px, 0px, 0px)');
+				  console.log('translate', 'translate3d('+pos+'px, 0px, 0px)');
+				  $(".innc").css('translate', 'translate3d('+pos+'px, 0px, 0px)');
+				  $('.innc').css({
+                    '-webkit-transform': 'translate3d('+pos+'px, 0px, 0px)',
+                   });
+				  //movePos = (index * myDivWidth * -1);
+						  
+               });
+			});
 
 
             if($.os.android||$.os.ie||search=="android"){
@@ -165,364 +168,175 @@
                     });
                 });
             }
-        </script>
-        <style>
-           .samplecode {
-                background: #ccc;
-                color: #000;
-                border-radius: 10px;
-                padding: 10px;
-                margin-bottom: 10px;
-                margin-top: 10px;
-           }
+       </script>
 
-           /* for the grid demo */
-           .grid > div {
-            border:1px dashed black;
-           }
-        </style>
-    <style>
-/* Demo Styles */
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 1.5;
-}
-.swiper-container {
-	color:#000000;
-}
-.swiper-slide .title {
-  line-height:15px !important;
-}
-  </style>
-
+ <script>
+	var myScroller;
+	$.ui.ready(function () {
+		myScroller = $("#webslider").scroller({
+		verticalScroll:false,
+         horizontalScroll:true,
+         scrollBars: false,
+		 useJsScroll: true,
+		 noParent: true,
+		 chk:10
+		}); //Fetch the scroller from cache
+					//Since this is a App Framework UI scroller, we could also do
+		// myScroller=$.ui.scrollingDivs['webslider'];
+		myScroller.addInfinite();
+		myScroller.addPullToRefresh();
+		/*$.bind(myScroller, 'scrollend', function () {
+			console.log("scroll end");
+		});
+		$.bind(myScroller, 'scrollstart', function () {
+			console.log("scroll start");
+		});
+		$.bind(myScroller, "refresh-trigger", function () {
+			console.log("refresh-trigger");
+		});*/
+		var hideClose;
+		$.bind(myScroller, "refresh-release", function () {
+			console.log("refresh-release");
+			var that = this;
+			clearTimeout(hideClose);
+			hideClose = setTimeout(function () {
+				console.log("hiding manually refresh");
+				that.hideRefresh();
+			}, 500);
+			return false; //tells it to not auto-cancel the refresh
+		});
+		$.bind(myScroller, "refresh-cancel", function () {
+			console.log("refresh-cancel");
+			clearTimeout(hideClose);
+		});
+		/*$.bind(myScroller, "refresh-finish", function () {
+			console.log("refresh-finish");
+		});*/
+		myScroller.enable();
+		$("#webslider").css("overflow", "hidden");
+	});
+</script>
+<script>
+ var carousel;
+	function init_carousel() {
+		carousel= $("#carousel").carousel({
+			pagingDiv: "carousel_dots",
+			pagingCssName: "carousel_paging2",
+			pagingCssNameSelected: "carousel_paging2_selected",
+			preventDefaults:false,
+			wrap:true //Set to false to disable the wrap around
+		});
+	}
+	window.addEventListener("load", init_carousel, false);
+</script>
 </head>
-
+<style>
+#webslider .cru {
+  float: left;
+  margin:2px;
+  width: 120px;
+}
+#webslider .cru img {
+	height: 165px;
+	width: 120px;
+}
+#carousel .cru {
+ margin:4px;
+	
+}
+</style>
 <body>
   <div id="afui">
         <!-- this is the splashscreen you see. -->
             <div id="splashscreen" class='ui-loader heavy'>
-                App Framework
-                <br>
+                App Framework <br>
                 <br>	<span class='ui-icon ui-icon-loading spin'></span>
                 <h1>Starting app</h1>
-
             </div>
-            <div id="header">
-                <a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton'></a>
+			
+             <div id="header">
                  <a class="sld_dwn" href="#transition3" data-transition="down"></a>
             </div>
-            
-    <div id="content">
-          <div id="main" class="panel">
-    <h2 class="heading_cont">John Doodle</h2>
-               <p class="spl_text">Spring is Coming</p>
-                  <!--  <ul class="list">
-                        <li class='red'>
-                            <a href="#af" id='aflink' class='icon home big'>App Framework</a>
-                        </li>
-                        <li class="blue">
-                            <a href="#afuidemo">App Framework UI</a>
-                        </li>
-                        <li>
-                            <a href="index.html" data-ignore="true">App Framework theme</a>
-                        </li>
-                         <li>
-                            <a href="index.html?ios" data-ignore="true">iOS theme</a>
-                        </li>
-                        <li>
-                            <a href="index.html?android" data-ignore="true">Android theme</a>
-                        </li>
-                        <li>
-                            <a href="index.html?win8" data-ignore="true">Win8 theme</a>
-                        </li>
-                        <li>
-                            <a href="index.html?bb" data-ignore="true">BB10 theme</a>
-                        </li>
-                       <li>
-                            <a href="index.html?ios7" data-ignore="true">ios7</a>
-                        </li>
 
-                    </ul>-->
-              
-			  
-			  
-			  
-			  
-			  
-            <!--<ul class="list carousel">        
-              <li><img src="http://lorempixel.com/120/200/sports"></li>        
-              <li><img src="http://lorempixel.com/120/200/nature"></li>        
-              <li><img src="http://lorempixel.com/120/200/technics"></li>        
-              <li><img src="http://lorempixel.com/120/200/people"></li>        
-              <li><img src="http://lorempixel.com/120/200/nightlife"></li>        
-              <li><img src="http://lorempixel.com/120/200/cats"></li>        
-              <li><img src="http://lorempixel.com/120/200/sports"></li>        
-              <li><img src="http://lorempixel.com/120/200/nature"></li>        
-              <li><img src="http://lorempixel.com/120/200/technics"></li>        
-              <li><img src="http://lorempixel.com/120/200/people"></li>        
-              <li><img src="http://lorempixel.com/120/200/nightlife"></li>        
-              <li> <img src="http://lorempixel.com/120/200/cats"></li>        
-            </ul> -->
-				<div class="swiper-container swiper-content">
-<div class="swiper-wrapper">
-<div class="swiper-slide">
-<div class="inner">
-<h1>Movie 1</h1>
-<img class="movie-pic" src="dd/1.jpg" height="150" width="150" alt="">
-<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-<div class="clearfix"></div>
-</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 2</h1>
-	<img class="movie-pic" src="dd/2.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 3</h1>
-	<img class="movie-pic" src="dd/3.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 4</h1>
-	<img class="movie-pic" src="dd/4.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 5</h1>
-	<img class="movie-pic" src="dd/5.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 6</h1>
-	<img class="movie-pic" src="dd/6.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 7</h1>
-	<img class="movie-pic" src="dd/7.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 8</h1>
-	<img class="movie-pic" src="dd/8.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 9</h1>
-	<img class="movie-pic" src="dd/1.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 10</h1>
-	<img class="movie-pic" src="dd/2.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 11</h1>
-	<img class="movie-pic" src="dd/3.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 12</h1>
-	<img class="movie-pic" src="dd/4.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 13</h1>
-	<img class="movie-pic" src="dd/5.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 14</h1>
-	<img class="movie-pic" src="dd/6.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 15</h1>
-	<img class="movie-pic" src="dd/7.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	<div class="swiper-slide">
-	<div class="inner">
-	<h1>Movie 16</h1>
-	<img class="movie-pic" src="dd/8.jpg" height="150" width="150" alt="">
-	<div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
-	<div class="clearfix"></div>
-	</div>
-	</div>
-	</div>
-</div>
-				     <div class="swiper-container swiper-nav">
-						<div class="swiper-wrapper">
-						<div class="swiper-slide active-nav">
-						<span class="angle"></span>
-						<img src="dd/1.jpg" alt="">
-						<div class="title">Movie 1</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/2.jpg" alt="">
-						<div class="title">Movie 2</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/3.jpg" alt="">
-						<div class="title">Movie 3</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/4.jpg" alt="">
-						<div class="title">Movie 4</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/5.jpg" alt="">
-						<div class="title">Movie 5 Long Title</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/6.jpg" alt="">
-						<div class="title">Movie 6</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/7.jpg" alt="">
-						<div class="title">Movie 7</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/8.jpg" alt="">
-						<div class="title">Movie 8</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/1.jpg" alt="">
-						<div class="title">Movie 9</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/2.jpg" alt="">
-						<div class="title">Movie 10</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/3.jpg" alt="">
-						<div class="title">Movie 11</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/4.jpg" alt="">
-						<div class="title">Movie 12</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/5.jpg" alt="">
-						<div class="title">Movie 13 Long Title</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/6.jpg" alt="">
-						<div class="title">Movie 14</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/7.jpg" alt="">
-						<div class="title">Movie 15</div>
-						</div>
-						<div class="swiper-slide">
-						<span class="angle"></span>
-						<img src="dd/8.jpg" alt="">
-						<div class="title">Movie 16</div>
-						</div>
-						</div>
-						</div>
+       <div id="content">
+          <div id="main" class="panel" selected="true" data-load="loadedPanel" data-unload="unloadedPanel" data-tab="navbar_home">
+               <h2 class="heading_cont">John Doodle</h2>
+               <p class="spl_text">Spring is Coming</p>
+			   
+			    <div title="ScrollerFull" class="" id="carousel" style="display:block;height:300px;width:100%;" >
+                    
+			<div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg" id="kk"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class="cru"> <a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+				<div class="cru"><a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class="cru"> <a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+          
+                </div>
 				
-				</div>
- 
-         <!-- App Framework UI> Transitions -->
+				<div title="Scroller" class="" id="webslider" style="overflow:hidden;" data-tab="navbar_info" >
+                    
+					<div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg" id="kk"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class="cru"> <a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+				<div class="cru"><a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img6.jpg" data-lightbox="example-1"><img src="images/img6.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img2.jpg" data-lightbox="example-1"><img src="images/img2.jpg"></a></div>
+                <div class="cru"><a data-transition="down" class="article" href="images/img3.jpg" data-lightbox="example-1"><img src="images/img3.jpg"></a></div>
+                <div class="cru"> <a data-transition="down" class="article" href="images/img4.jpg" data-lightbox="example-1"><img src="images/img4.jpg"></a></div>
               
-                <div  id="transition3" class="panel splashscreen" data-footer='footerui' style="padding-left:0px">
+ 
+                  
+                    
+                </div>
+
+                </div>
+
+           <!-- App Framework UI> Transitions -->
+
+                <div id="transition3" class="panel splashscreen" data-footer='footerui' style="padding-left:0px">
                       <ul class="list">
-                        <li><a href="#"><input type="search" name="search"></a></li>
+                        <li class="search_bx"><a href="#"><input type="search" name="search" placeholder="Search" class="srch_icn"></a></li>
                         <li><a href="#">Account</a></li>
                         <li><a href="#">Settings</a></li>
                         <li><a href="#">Logout</a></li>
                       </ul>
-                   
-                </div>
-				
-				
-                
-                <!-- ------------------------------------------ -->
-        
-    </div>
-      <div id="navbar" style='margin: 0;float:left;'>
-                <a href="#main/1/3" id='navbar_home' class='icon home'>home </a>
-            </div>
-        
-            <footer id='footerui'>
-                <a href="#main" id='navbar_home' class='icon home'>Home </a>
-            </footer>
- 
-    <nav id="main_nav">
-            <ul class="list">
-                 <li>
-                 
-                 </li>
-             </ul>
-        
-    </nav>
- </div>
-<!--     <script type="text/javascript" charset="utf-8" src="plugins/jquery-1.10.1.min.js"></script>
--->
 
-<script  type="text/javascript" src="dd/swiper.min.js"></script>
-<script  type="text/javascript" src="dd/movies-app.js"></script>    
+                </div>
+
+         </div>
+
+    </div>
+
 
 </body>
 </html>

@@ -38,21 +38,21 @@ body:after {
 }
 /* line 32, ../sass/lightbox.sass */
 .lightbox a img {
-  border: none;
+  border: none; 
 }
 lb-outerContainer{width: 100% !important;
-height: 418px !important;}
+height: 418px !important; }
 
 .lb-image {display: block;
 width: auto !important;
 height: 410px !important;
-max-width: 100%;}
+max-width: 100%; }
 /* line 35, ../sass/lightbox.sass */
 .lb-outerContainer {
   position: relative;
   *zoom: 1;
-  width: 250px;
-  height: 250px;
+  width: 100% !important;
+  height: 100% !important;
   margin: 0 auto;
 
 }
@@ -65,7 +65,7 @@ max-width: 100%;}
 
 /* line 44, ../sass/lightbox.sass */
 .lb-container {
-  padding: 4px;
+  padding: 4px; display:inline-block
 }
 
 /* line 47, ../sass/lightbox.sass */
